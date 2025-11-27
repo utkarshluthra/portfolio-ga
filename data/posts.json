@@ -1,0 +1,31 @@
+[
+  {
+    "id": "1",
+    "title": "Welcome to my new portfolio",
+    "slug": "welcome",
+    "date": "2025-11-27",
+    "content": [
+      {
+        "id": "1764242396277",
+        "type": "heading",
+        "value": ""
+      },
+      {
+        "id": "1764242401878",
+        "type": "paragraph",
+        "value": ""
+      },
+      {
+        "id": "1764242406296",
+        "type": "quote",
+        "value": ""
+      },
+      {
+        "id": "1764242410377",
+        "type": "image",
+        "value": ""
+      }
+    ],
+    "excerpt": "Welcome to my new digital home."
+  }
+]

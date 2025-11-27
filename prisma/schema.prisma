@@ -1,0 +1,70 @@
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Profile {
+  id             String          @id @default(uuid())
+  name           String
+  title          String
+  bio            String
+  linkedin       String?
+  github         String?
+  twitter        String?
+  website        String?
+  experiences    Experience[]
+  projects       Project[]
+  certifications Certification[]
+  skills         Skill[]
+}
+
+model Experience {
+  id          String  @id @default(uuid())
+  role        String
+  company     String
+  period      String
+  description String
+  profileId   String
+  profile     Profile @relation(fields: [profileId], references: [id])
+}
+
+model Project {
+  id          String  @id @default(uuid())
+  title       String
+  description String
+  link        String?
+  github      String?
+  tags        String // Stored as JSON string
+  profileId   String
+  profile     Profile @relation(fields: [profileId], references: [id])
+}
+
+model Certification {
+  id        String  @id @default(uuid())
+  title     String
+  issuer    String
+  date      String
+  profileId String
+  profile   Profile @relation(fields: [profileId], references: [id])
+}
+
+model Skill {
+  id        String  @id @default(uuid())
+  name      String
+  profileId String
+  profile   Profile @relation(fields: [profileId], references: [id])
+}
+
+model Post {
+  id      String @id @default(uuid())
+  title   String
+  slug    String @unique
+  date    String
+  excerpt String
+  content String // Stored as JSON string
+}

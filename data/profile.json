@@ -1,0 +1,112 @@
+{
+  "name": "Utkarsh Luthra",
+  "title": "CEO, Medoc Health",
+  "bio": "I am a 2x entrepreneur and the driving force behind Medoc Health, a digital healthcare platform focused on streamlining healthcare operations. I am committed to making a positive difference in the healthcare industry through technology. My passion lies in building scalable systems that solve real human problems.",
+  "socials": {
+    "linkedin": "https://www.linkedin.com/in/UtkarshLuthra",
+    "github": "https://github.com/UtkarshLuthra",
+    "twitter": "https://twitter.com/UtkarshLuthra",
+    "website": "https://utkarshluthra.com"
+  },
+  "experience": [
+    {
+      "id": "1",
+      "role": "Co-founder / Driver",
+      "company": "Medoc Health",
+      "period": "2023 - Present",
+      "description": "Leading the development of a digital healthcare platform to streamline hospital operations and improve patient outcomes. Built the entire tech stack from scratch using React, Node.js, and AWS. Managed a team of 5 engineers and successfully deployed to 10+ hospitals."
+    },
+    {
+      "id": "2",
+      "role": "Software Engineering Intern",
+      "company": "Tech Innovators Inc.",
+      "period": "2022 - 2023",
+      "description": "Developed microservices for a high-traffic e-commerce platform. Optimized database queries reducing load times by 40%. Collaborated with cross-functional teams to deliver features ahead of schedule."
+    },
+    {
+      "id": "3",
+      "role": "Full Stack Developer",
+      "company": "Freelance",
+      "period": "2020 - 2022",
+      "description": "Delivered 15+ web applications for clients globally. Specialized in MERN stack development and creating responsive, user-friendly interfaces."
+    }
+  ],
+  "projects": [
+    {
+      "id": "1",
+      "title": "Medoc Health",
+      "description": "A comprehensive digital healthcare platform connecting hospitals, doctors, and patients. Features include appointment scheduling, EMR, and inventory management.",
+      "link": "https://medochealth.in",
+      "tags": [
+        "Healthcare",
+        "React",
+        "Node.js",
+        "AWS"
+      ]
+    },
+    {
+      "id": "2",
+      "title": "Decoding Life",
+      "description": "My debut book exploring the intersections of technology, philosophy, and personal growth. Available on Amazon.",
+      "link": "#",
+      "tags": [
+        "Writing",
+        "Book",
+        "Philosophy"
+      ]
+    },
+    {
+      "id": "3",
+      "title": "AlgoVisualizer",
+      "description": "An interactive web application to visualize complex algorithms like Dijkstra and A* search. Built to help students understand DSA concepts.",
+      "github": "https://github.com/UtkarshLuthra",
+      "tags": [
+        "Education",
+        "Algorithms",
+        "React"
+      ]
+    },
+    {
+      "id": "4",
+      "title": "SmartHome Hub",
+      "description": "IoT dashboard for managing smart home devices. Integrates with MQTT protocols for real-time control.",
+      "github": "https://github.com/UtkarshLuthra",
+      "tags": [
+        "IoT",
+        "Dashboard",
+        "Real-time"
+      ]
+    }
+  ],
+  "certifications": [
+    {
+      "id": "1",
+      "title": "AWS Certified Solutions Architect",
+      "issuer": "Amazon Web Services",
+      "date": "2024"
+    },
+    {
+      "id": "2",
+      "title": "Professional Scrum Master I",
+      "issuer": "Scrum.org",
+      "date": "2023"
+    },
+    {
+      "id": "3",
+      "title": "Meta Front-End Developer",
+      "issuer": "Coursera",
+      "date": "2022"
+    }
+  ],
+  "skills": [
+    "JavaScript",
+    "TypeScript",
+    "React",
+    "Next.js",
+    "Node.js",
+    "C++",
+    "Python",
+    "AWS",
+    "Docker"
+  ]
+}
