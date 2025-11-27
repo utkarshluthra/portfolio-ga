@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { getPost, updatePost, deletePost } from '@/lib/data';
 
+export const dynamic = 'force-dynamic';
+
 export async function GET(request: Request, { params }: { params: Promise<{ slug: string }> }) {
     try {
         const { slug } = await params;
@@ -16,11 +18,17 @@ export async function GET(request: Request, { params }: { params: Promise<{ slug
     }
 }
 
+import { revalidatePath } from 'next/cache';
+
 export async function PUT(request: Request, { params }: { params: Promise<{ slug: string }> }) {
     try {
         const { slug } = await params;
         const body = await request.json();
-        const updatedPost = updatePost(slug, body);
+        const updatedPost = await updatePost(slug, body);
+        revalidatePath('/');
+        revalidatePath('/blog');
+        revalidatePath(`/blog/${slug}`);
+        revalidatePath('/dashboard');
 
         if (!updatedPost) {
             return NextResponse.json({ error: 'Post not found' }, { status: 404 });
@@ -35,7 +43,10 @@ export async function PUT(request: Request, { params }: { params: Promise<{ slug
 export async function DELETE(request: Request, { params }: { params: Promise<{ slug: string }> }) {
     try {
         const { slug } = await params;
-        deletePost(slug);
+        await deletePost(slug);
+        revalidatePath('/');
+        revalidatePath('/blog');
+        revalidatePath('/dashboard');
         return NextResponse.json({ message: 'Post deleted' });
     } catch (error) {
         return NextResponse.json({ error: 'Failed to delete post' }, { status: 500 });

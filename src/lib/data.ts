@@ -7,6 +7,7 @@ export async function getProfile() {
             projects: true,
             certifications: true,
             skills: true,
+            videos: true,
         },
     });
 
@@ -32,6 +33,7 @@ export async function getProfile() {
             github: p.github || undefined,
         })),
         experience: profile.experiences, // Map 'experiences' (DB) to 'experience' (JSON/Frontend)
+        videos: profile.videos,
     };
 }
 
@@ -112,6 +114,21 @@ export async function updateProfile(data: any) {
                 await tx.skill.create({
                     data: {
                         name: skill,
+                        profileId: profile.id,
+                    },
+                });
+            }
+        }
+
+        // Videos
+        if (data.videos) {
+            await tx.video.deleteMany({ where: { profileId: profile.id } });
+            for (const video of data.videos) {
+                await tx.video.create({
+                    data: {
+                        title: video.title,
+                        url: video.url,
+                        description: video.description,
                         profileId: profile.id,
                     },
                 });

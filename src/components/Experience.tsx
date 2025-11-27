@@ -27,7 +27,21 @@ export default function Experience({ experience }: ExperienceProps) {
                     Professional Journey
                 </motion.h2>
 
-                <div className="relative">
+                <motion.div
+                    className="relative"
+                    variants={{
+                        hidden: { opacity: 0 },
+                        show: {
+                            opacity: 1,
+                            transition: {
+                                staggerChildren: 0.2
+                            }
+                        }
+                    }}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                >
                     {/* Central Line - Desktop */}
                     <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 -translate-x-1/2" />
 
@@ -37,10 +51,10 @@ export default function Experience({ experience }: ExperienceProps) {
                     {experience.map((item, index) => (
                         <motion.div
                             key={item.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
+                            variants={{
+                                hidden: { opacity: 0, x: index % 2 === 0 ? -50 : 50 },
+                                show: { opacity: 1, x: 0 }
+                            }}
                             className={`relative mb-12 md:mb-24 ${index % 2 === 0 ? 'md:flex-row-reverse' : ''
                                 } md:flex items-center justify-between`}
                         >
@@ -73,7 +87,7 @@ export default function Experience({ experience }: ExperienceProps) {
                             </div>
                         </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

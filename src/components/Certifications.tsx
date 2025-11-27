@@ -32,14 +32,28 @@ export default function Certifications({ certifications }: CertificationsProps) 
                     </p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {certifications.map((cert, index) => (
+                <motion.div
+                    className="grid grid-cols-1 md:grid-cols-3 gap-8"
+                    variants={{
+                        hidden: { opacity: 0 },
+                        show: {
+                            opacity: 1,
+                            transition: {
+                                staggerChildren: 0.1
+                            }
+                        }
+                    }}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                >
+                    {certifications.map((cert) => (
                         <motion.div
                             key={cert.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1 }}
+                            variants={{
+                                hidden: { opacity: 0, scale: 0.9 },
+                                show: { opacity: 1, scale: 1 }
+                            }}
                             className="bg-white p-8 rounded-2xl border border-gray-100 shadow-sm hover:shadow-lg hover:border-primary/20 transition-all group flex items-start gap-6"
                         >
                             <div className="p-4 bg-primary/5 text-primary rounded-xl group-hover:bg-primary group-hover:text-white transition-colors">
@@ -52,7 +66,7 @@ export default function Certifications({ certifications }: CertificationsProps) 
                             </div>
                         </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </div>
         </section>
     );

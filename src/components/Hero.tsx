@@ -33,7 +33,19 @@ export default function Hero({ name, title, bio }: HeroProps) {
 
                         <h1 className="text-6xl md:text-8xl font-bold mb-8 tracking-tight text-foreground leading-[1.1]">
                             Hello, I'm <br />
-                            <span className="text-primary">{name}</span>.
+                            <span className="text-primary inline-block">
+                                {Array.from(name).map((char, index) => (
+                                    <motion.span
+                                        key={index}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        transition={{ delay: 0.5 + index * 0.05, type: "spring", stiffness: 200 }}
+                                        className="inline-block"
+                                    >
+                                        {char === " " ? "\u00A0" : char}
+                                    </motion.span>
+                                ))}
+                            </span>.
                         </h1>
 
                         <p className="text-2xl md:text-3xl text-gray-800 font-medium mb-6">

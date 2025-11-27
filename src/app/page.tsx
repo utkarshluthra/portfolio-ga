@@ -5,6 +5,7 @@ import Projects from '@/components/Projects';
 import Contact from '@/components/Contact';
 import BookSection from '@/components/BookSection';
 import Featured from '@/components/Featured';
+import Videos from '@/components/Videos';
 import Certifications from '@/components/Certifications';
 import { getProfile, getPosts } from '@/lib/data';
 
@@ -28,6 +29,7 @@ export default async function Home() {
         bio={profile.bio}
       />
       <Featured posts={posts} />
+      <Videos videos={profile.videos} />
       <BookSection />
       <About bio={profile.bio} />
       <Experience experience={profile.experience} />

@@ -11,8 +11,15 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Utkarsh Luthra | Portfolio",
-  description: "Software Engineer & Entrepreneur",
+  title: {
+    template: '%s | Utkarsh Luthra',
+    default: 'Utkarsh Luthra | Software Engineer & Entrepreneur',
+  },
+  description: 'Portfolio of Utkarsh Luthra, a Software Engineer and Entrepreneur passionate about building impactful solutions.',
+  keywords: ['Software Engineer', 'Entrepreneur', 'Full Stack', 'React', 'Next.js', 'Utkarsh Luthra'],
+  icons: {
+    icon: '/favicon.png',
+  },
 };
 
 export default function RootLayout({
