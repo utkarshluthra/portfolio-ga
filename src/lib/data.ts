@@ -1,4 +1,15 @@
 import { prisma } from './prisma';
+import { Prisma } from '@prisma/client';
+
+type ProfileWithRelations = Prisma.ProfileGetPayload<{
+    include: {
+        experiences: true;
+        projects: true;
+        certifications: true;
+        skills: true;
+        videos: true;
+    };
+}>;
 
 export async function getProfile() {
     const profile = await prisma.profile.findFirst({
@@ -9,7 +20,7 @@ export async function getProfile() {
             skills: true,
             videos: true,
         },
-    });
+    }) as ProfileWithRelations | null;
 
     if (!profile) return null;
 

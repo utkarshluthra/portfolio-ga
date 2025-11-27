@@ -16,6 +16,7 @@ async function main() {
     await prisma.certification.deleteMany()
     await prisma.project.deleteMany()
     await prisma.experience.deleteMany()
+    await prisma.video.deleteMany()
     await prisma.profile.deleteMany()
     await prisma.post.deleteMany()
 
@@ -76,6 +77,19 @@ async function main() {
                 profileId: profile.id
             }
         })
+    }
+
+    if (profileData.videos) {
+        for (const video of profileData.videos) {
+            await prisma.video.create({
+                data: {
+                    title: video.title,
+                    url: video.url,
+                    description: video.description,
+                    profileId: profile.id
+                }
+            })
+        }
     }
 
     // Insert Posts
